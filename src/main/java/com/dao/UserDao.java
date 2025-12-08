@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.model.User;
 
@@ -34,6 +36,23 @@ public class UserDao implements UserDaoInterface {
 
 		return status;
 	}
+	 public List<User> getAllUsers() throws Exception {
+	        List<User> list = new ArrayList<>();
+	        Connection con = JDBCUtility.getConnection();
+	        PreparedStatement ps = con.prepareStatement("SELECT * FROM users");
+	        ResultSet rs = ps.executeQuery();
+
+	        while (rs.next()) {
+	            User u = new User();
+	            //u.setU_id(rs.getInt("u_id"));
+	            u.setU_name(rs.getString("u_name"));
+	            u.setU_email(rs.getString("u_email"));
+	            u.setU_role(rs.getString("u_role"));
+	           
+	            list.add(u);
+	        }
+	        return list;
+	    }
 
 	@Override
 	public User login(String user_name, String U_password,String role) {
@@ -94,4 +113,10 @@ public class UserDao implements UserDaoInterface {
 	
 		
 	}
+	public boolean deleteUser(int id) throws Exception {
+        Connection con = JDBCUtility.getConnection();
+        PreparedStatement ps = con.prepareStatement("DELETE FROM users WHERE u_id=?");
+        ps.setInt(1, id);
+        return ps.executeUpdate() > 0;
+    }
 }

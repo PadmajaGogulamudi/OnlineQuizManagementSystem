@@ -74,4 +74,24 @@
     <servlet-name>ProfileServlet</servlet-name>
     <url-pattern>/ProfileServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdminQuestionServlet</display-name>
+    <servlet-name>AdminQuestionServlet</servlet-name>
+    <servlet-class>com.controllers.AdminQuestionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminQuestionServlet</servlet-name>
+    <url-pattern>/AdminQuestionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdminUserServlet</display-name>
+    <servlet-name>AdminUserServlet</servlet-name>
+    <servlet-class>com.controllers.AdminUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminUserServlet</servlet-name>
+    <url-pattern>/AdminUserServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

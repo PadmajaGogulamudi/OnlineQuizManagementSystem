@@ -16,6 +16,9 @@ public class Question {
 		this.correctOption = correctOption;
 		this.marks = marks;
 	}
+	public Question() {
+		
+	}
 
 	public int getQ_id() {
 		return q_id;
