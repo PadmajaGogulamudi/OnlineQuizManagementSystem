@@ -69,7 +69,7 @@
 
 <body>
 
-<a href="admin_home.jsp" class="back">← Back</a>
+<a href="adminHome.jsp" class="back">← Back</a>
 
 <h2>Manage Users</h2>
 
