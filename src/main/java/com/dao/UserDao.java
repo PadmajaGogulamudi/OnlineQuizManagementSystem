@@ -27,7 +27,7 @@ public class UserDao implements UserDaoInterface {
 			ps.setString(5, u.getU_role());
 			n = ps.executeUpdate();
 		} catch (SQLException e) {
-			e.printStackTrace();;
+			e.printStackTrace();
 		}
 
 		if (n > 0) {
@@ -36,7 +36,8 @@ public class UserDao implements UserDaoInterface {
 
 		return status;
 	}
-	 public List<User> getAllUsers() throws Exception {
+	
+	public List<User> getAllUsers() throws Exception {
 	        List<User> list = new ArrayList<>();
 	        Connection con = JDBCUtility.getConnection();
 	        PreparedStatement ps = con.prepareStatement("SELECT * FROM users");
@@ -113,6 +114,8 @@ public class UserDao implements UserDaoInterface {
 	
 		
 	}
+	
+	
 	public boolean deleteUser(int id) throws Exception {
         Connection con = JDBCUtility.getConnection();
         PreparedStatement ps = con.prepareStatement("DELETE FROM users WHERE u_id=?");

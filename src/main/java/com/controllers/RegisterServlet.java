@@ -3,6 +3,7 @@ package com.controllers;
 import java.io.IOException;
 
 import com.dao.UserDao;
+import com.dao.UserDaoInterface;
 import com.model.User;
 
 import jakarta.servlet.ServletException;
@@ -34,7 +35,7 @@ public class RegisterServlet extends HttpServlet {
 		u.setU_email(email);
 		u.setU_role(role);
 
-		UserDao dao = new UserDao();
+		UserDaoInterface dao = new UserDao();
 		if (dao.register(u))
 			// after successful insertion into DB
 			response.sendRedirect(request.getContextPath() + "/login.jsp?msg=registered"+username );

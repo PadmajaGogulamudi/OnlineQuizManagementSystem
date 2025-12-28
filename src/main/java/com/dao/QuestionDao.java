@@ -12,7 +12,7 @@ import com.model.Question;
 public class QuestionDao implements QuestionsDaoInterface {
 	Connection con = null;
 
-	String status = "fail";
+	
 
 	@Override
 	public List<Question> getQuestions(int limit) {
@@ -57,6 +57,7 @@ public class QuestionDao implements QuestionsDaoInterface {
 
 	        return ps.executeUpdate() > 0;
 	    }
+	 
 	 public List<Question> getAllQuestions() throws Exception {
 	        List<Question> list = new ArrayList<>();
 	        Connection con = JDBCUtility.getConnection();
@@ -77,6 +78,7 @@ public class QuestionDao implements QuestionsDaoInterface {
 	        }
 	        return list;
 	    }
+	 
 	 public boolean deleteQuestion(int id) throws Exception {
 	        Connection con = JDBCUtility.getConnection();
 	        PreparedStatement ps = con.prepareStatement("DELETE FROM questions WHERE q_id=?");
